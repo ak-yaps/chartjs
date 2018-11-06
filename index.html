@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Test Chartjs</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+
+</head>
+
+<body>
+  <div class="container">
+    <canvas id="myChart"></canvas>
+  </div>
+
+  <script>
+    let myChart = document.getElementById('myChart').getContext('2d');
+
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = 'lightgray';
+
+    let massPopChart = new Chart(myChart, {
+      type: 'bar',
+      data: {
+        labels: ['Seoul', 'Busan', 'Daegu', 'Gwangju', 'Ulsan'],
+        datasets: [{
+          label: 'Population',
+          data: [
+            100000000,
+            54049543,
+            4534534,
+            4353454,
+            7867876,
+          ],
+          backgroundColor: ['whitesmoke','lightblue', 'yellow', 'pink', 'plum'],
+          borderWidth: 1,
+          borderColor: 'lightgray',
+          hoverBorderWidth: 3,
+          hoverBorderColor: 'gray'
+        }]
+      },
+      options:{
+        title:{
+          display: true,
+          text: 'Largest cities in South Korea',
+          fontSize: 25
+        },
+        legend: {
+          display: false,
+          position: 'right',
+          labels:{
+            fontColor: 'black'
+          }
+        },
+        layout:{
+          padding:{
+            right:0,
+            left:50,
+            bottom:0,
+            top:0
+          }
+        },
+        tooltips:{
+          enabled: true
+        },
+        // animation: {
+        //   onProgress: function (animation) {
+        //     progress.value = animation.animationObject.currentStep / animation.animationObject.numSteps;
+        //   }
+        // }
+      }
+    })
+  </script>
+
+</body>
+
+</html>
